@@ -1,4 +1,4 @@
-<template>
+<template>  <v-app dark>  
     <v-container fluid fill-height grid-list-md>
         <v-layout row wrap justify-center align-center>
             <v-flex class="xs12 sm6 md4 lg4 lx4">
@@ -27,6 +27,7 @@
             </v-btn>
         </v-snackbar>
     </v-container>
+            </v-app>
 </template>
 
 <script>
