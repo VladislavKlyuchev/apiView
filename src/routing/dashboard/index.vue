@@ -4,6 +4,9 @@
         <v-toolbar-items>
             <v-btn flat :to="'/channels'">Channels</v-btn>
              <v-btn flat :to="'/packages'">packages</v-btn>
+              <v-btn flat :to="'/categories'">categories</v-btn>
+                <v-btn flat :to="'/operators'">operators</v-btn>
+                 <v-btn flat :to="'/users'">users</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <v-container fluid fill-height>
@@ -44,6 +47,8 @@ export default {
       this.$store.dispatch('getChannels')
       this.$store.dispatch('getCategories')
       this.$store.dispatch('getPackages')
+      this.$store.dispatch('getOperators')
+      this.$store.dispatch('getUsers')
   }
 };
 </script>

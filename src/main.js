@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import { store } from '../store'
+import veeValidate from 'vee-validate'
 import 'vuetify/dist/vuetify.min.css'
 
+Vue.use(veeValidate)
 Vue.use(Vuetify, {
   theme: {
     primary: "#FF6D00", 

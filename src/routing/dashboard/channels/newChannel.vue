@@ -36,7 +36,10 @@
             <v-flex xs6>
                  <v-checkbox  label="hidden" v-model="hidden"></v-checkbox>
             </v-flex>
-            <v-flex xs12></v-flex>
+           <v-flex xs12>
+                   <v-checkbox label="Adult" color="success" v-model="adult"></v-checkbox>
+                
+                  </v-flex>
             <v-flex xs6>
               <v-btn @click="close()" color="warning" flat block> reset</v-btn>
             </v-flex>
@@ -53,6 +56,7 @@ export default {
   data() {
     return {
       channelId: null,
+      adult: false,
       channelName: null,
       channelNameENG: null,
       xmltvid: null,
@@ -77,6 +81,7 @@ export default {
       if (this.$refs.form.validate()) {
         const body = {
           channelId: this.channelId,
+          adult: this.adult == true? 1: 0,
           channelName: this.channelName,
           channelNameENG: this.channelNameENG,
           xmlTvId: this.xmltvid,
@@ -84,7 +89,7 @@ export default {
           logoPath: this.logoPath,
           streamPath: this.streamPath,
           timeshift: this.timeshift,
-          hidden: this.hidden? 1: 0
+          hidden: this.hidden? 1: 0 
         };
         this.$store.dispatch("createNewChannel", body)
         .then(() => {

@@ -12,7 +12,10 @@
                         <v-container fluid grid-list-lg>
                         <v-layout row wrap>
                             <v-flex xs12>
-                                <v-select :items="packages"  item-text="name" item-value="id" v-model="activePackage" solo-inverted ></v-select>
+                                  <v-select :items="operators" label="Operators" clearable item-text="name" item-value="id" v-model="activeOperator" solo-inverted ></v-select>
+                            </v-flex>
+                            <v-flex xs12 v-if="activeOperator">
+                                <v-autocomplete :items="filterPackages" label="Packages"  clearable item-text="name" item-value="id" v-model="activePackage" solo-inverted ></v-autocomplete>
                             </v-flex>
                             <v-flex xs12>
                                 <v-btn @click="update" block flat color="warning"> update</v-btn>
@@ -57,21 +60,21 @@ export default {
   data() {
     return {
       activePackage: null,
+      activeOperator: null,
       channels: []
     };
   },
   methods: {
     update() {
       if (this.activePackage !== null && this.channels.length !== 0) {
-          const body = this.channels.map((el, key) => {
-              return {
-                  channelId: el.id,
-                  packageId: this.activePackage,
-                  order: key
-              }
-          })
-          this.$store.dispatch('sortChannels', body)
-          .then()
+        const body = this.channels.map((el, key) => {
+          return {
+            channelId: el.id,
+            packageId: this.activePackage,
+            order: key
+          };
+        });
+        this.$store.dispatch("sortChannels", body).then();
       }
     },
     deleteChannel(id) {
@@ -93,12 +96,23 @@ export default {
       this.channels = this.channelsWithPackage.filter(
         el => el.packageId == this.activePackage
       );
-    }
+    },
   },
-  computed: mapState({
+  computed: {
+      filterPackages() {
+          console.log(this.activeOperator)
+          return this.packages.filter((el) => {
+              console.log(el)
+              return el.operatorId == this.activeOperator ? true: false
+          })
+      },
+  ...mapState({
     packages: state => state.packages,
-    channelsWithPackage: state => state.channelsWithPackage.sort((a,b) => a.order -b.order )
-  }),
+    channelsWithPackage: state =>
+      state.channelsWithPackage.sort((a, b) => a.order - b.order),
+    operators: state => state.operators
+  })
+  }
 };
 </script>
 
