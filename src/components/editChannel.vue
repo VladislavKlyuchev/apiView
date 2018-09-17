@@ -37,7 +37,10 @@
             <v-flex xs6>
                  <v-checkbox  label="hidden" v-model="hidden"></v-checkbox>
             </v-flex>
-            <v-flex xs12></v-flex>
+           <v-flex xs12>
+                   <v-checkbox label="Adult" color="success" v-model="adult"></v-checkbox>
+                
+                  </v-flex>
             <v-flex xs6>
               <v-btn @click="close()" color="warning" flat block> reset</v-btn>
             </v-flex>
@@ -62,6 +65,7 @@ export default {
       channelId: null,
       channelName: null,
       channelNameENG: null,
+      adult: null,
       xmltvid: null,
       category: null,
       packageId: null,
@@ -87,6 +91,7 @@ export default {
       this.xmltvid = this.data.xmlTvId;
       this.category = this.data.categoryId;
       this.package = this.data.package;
+      this.adult = this.data.adult == 1? true: false,
       this.logoPath = this.data.logoPath;
       this.streamPath = this.data.streamPath;
       this.timeshift = this.data.timeshift;
@@ -107,7 +112,8 @@ export default {
           logoPath: this.logoPath,
           streamPath: this.streamPath,
           timeshift: this.timeshift,
-          hidden: this.hidden ? 1 : 0
+          hidden: this.hidden ? 1 : 0,
+          adult: this.adult == true? 1: 0
         };
         this.$store.dispatch("getUpdateChannel", body).then(() => {
           this.$refs.form.reset();

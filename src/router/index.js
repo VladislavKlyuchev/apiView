@@ -26,7 +26,6 @@ export default new Router({
         store.state.auth ? next() : next('/auth'); 
       },
       children: [
-        
         {
           path: 'channels',
           name: 'channels',
@@ -60,6 +59,5 @@ export default new Router({
         }
       ]
     },
-    
   ]
 })
