@@ -37,11 +37,13 @@
                      <v-icon color="warning" >edit</v-icon>
                      </v-btn>
               </v-flex>
+              <!--
               <v-flex xs6>
                   <v-btn small flat  @click.stop="deleteCategory(props.item.id)">
               <v-icon color="error">clear</v-icon>
           </v-btn>
               </v-flex>
+              -->
           </v-layout> 
       </td>
        </tr>

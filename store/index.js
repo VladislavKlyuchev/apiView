@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-const link = 'http://192.168.22.120:5000'
+const link = 'http://172.29.95.33:5000'
 const pass = 123321
 Vue.use(Vuex)
 
@@ -76,6 +76,7 @@ export const store = new Vuex.Store({
           dispatch('getChannels')
         })
     },
+
     getUpdateChannel ({ state, commit, dispatch }, channel) {
       channel.dashboard = pass
       axios.post(`${link}/updateChannel`, channel)
@@ -101,6 +102,16 @@ export const store = new Vuex.Store({
         .then((result) => {
           dispatch('getPackages')
         })
+    },
+    deletePackage ({dispatch}, body) {
+      body.dashboard = pass
+      axios.post(`${link}/deletePackage`, body)
+      .then(() => {
+        dispatch('getPackages')
+        .then(() => {
+          dispatch('getUsers')
+        })
+      })
     },
     deleteChannelFromPackage ({ state, commit, dispatch }, channel) {
       channel.dashboard = pass

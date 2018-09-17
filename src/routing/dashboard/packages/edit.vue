@@ -49,7 +49,6 @@ export default {
               price: this.price,
               operatorId: this.operator,
               status: this.status
-
           }
         this.$store.dispatch("createNewPackage", body).then(() => {
           this.$refs.form.reset();

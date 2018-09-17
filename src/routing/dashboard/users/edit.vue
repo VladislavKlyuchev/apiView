@@ -1,7 +1,7 @@
 <template>
      <v-layout row wrap justify-center align-center>
             <v-flex xs12 md6>
-              <h1 class="text-xs-center title"> Create new user</h1>
+              <h1 class="text-xs-center title"> Edit user</h1>
               <v-form ref="form">
                 <v-layout row wrap  class="mt-5">
                   <v-flex xs12>

@@ -17,22 +17,18 @@
       <td class="text-xs-left">{{ props.item.id }}</td>
       <td class="text-xs-left">{{ props.item.name }}</td>
         <td class="text-xs-left">{{ props.item.uuid }}</td>
-       <td class="text-xs-left">{{ props.item.status }}</td>
+       <td class="text-xs-left">
+         <v-icon color="success" v-if="props.item.status">done</v-icon>
+          <v-icon color="error" v-else>clear</v-icon>
+       </td>
         <td class="text-xs-left">{{ props.item.operatorId}}</td>
       <td class="text-xs-left">{{ props.item.packageId }}</td>
       <td class="text-xs-left">
-          <v-layout row wrap >
-              <v-flex xs6>
+        
                    <v-btn flat small :to="`/users/edit/${props.item.id}`"> 
                      <v-icon color="warning" >edit</v-icon>
                      </v-btn>
-              </v-flex>
-              <v-flex xs6>
-                  <v-btn small flat  @click="deleteChannel(props.item.id)">
-              <v-icon color="error">clear</v-icon>
-          </v-btn>
-              </v-flex>
-          </v-layout>
+             
       </td>
     </template>
   </v-data-table>

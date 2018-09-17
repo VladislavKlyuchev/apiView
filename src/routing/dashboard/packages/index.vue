@@ -11,6 +11,10 @@
                     <v-card>
                         <v-container fluid grid-list-lg>
                         <v-layout row wrap>
+                            
+                            <v-flex xs12>
+                                <v-btn v-if="activePackage && filterPackages.length > 1" block @click="deletePackage" class="error">DELETE Package</v-btn>
+                            </v-flex>
                             <v-flex xs12>
                                   <v-select :items="operators" label="Operators" clearable item-text="name" item-value="id" v-model="activeOperator" solo-inverted ></v-select>
                             </v-flex>
@@ -65,6 +69,12 @@ export default {
     };
   },
   methods: {
+    deletePackage() {
+        const body = {  
+            packageId: this.activePackage,
+        }
+        this.$store.dispatch("deletePackage",body)
+    },  
     update() {
       if (this.activePackage !== null && this.channels.length !== 0) {
         const body = this.channels.map((el, key) => {
@@ -102,7 +112,6 @@ export default {
       filterPackages() {
           console.log(this.activeOperator)
           return this.packages.filter((el) => {
-              console.log(el)
               return el.operatorId == this.activeOperator ? true: false
           })
       },
