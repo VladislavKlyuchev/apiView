@@ -8,7 +8,14 @@ import newChannel from '@/routing/dashboard/channels/newChannel'
 import packages from '@/routing/dashboard/packages'
 import newPackages from '@/routing/dashboard/packages/newPackages'
 import addChannelsToPackages from '@/routing/dashboard/packages/addChannels'
-import Users from '@/routing/dashboard/users'
+import categories from '@/routing/dashboard/categories'
+import newCategories from '@/routing/dashboard/categories/new'
+import operators from '@/routing/dashboard/operators'
+import newOperators from '@/routing/dashboard/operators/new'
+import editOperator from '@/routing/dashboard/operators/edit'
+import users from '@/routing/dashboard/users';
+import newUsers from '@/routing/dashboard/users/new';
+import editUser from '@/routing/dashboard/users/edit'
 Vue.use(Router)
 
 export default new Router({
@@ -23,9 +30,10 @@ export default new Router({
       name: 'Dashboard',
       component: Dashboard,
       beforeEnter(to, from, next) {
-        store.state.auth ? next() : next('/auth'); 
+        store.state.auth ? next() : next('/auth')
       },
       children: [
+
         {
           path: 'channels',
           name: 'channels',
@@ -50,8 +58,38 @@ export default new Router({
           component: newPackages
         },
         {
+          path: 'categories',
+          component: categories,
+        },
+        {
+          path: 'categories/new',
+          component: newCategories,
+        },
+        {
+          path: 'operators',
+          component: operators
+        },
+        {
+          path: 'operators/new',
+          component: newOperators
+        },
+        {
+          path: 'operators/edit/:id',
+          props: true,
+          component: editOperator
+        },
+        {
           path: 'users',
-          component: Users
+          component: users
+        },
+        {
+          path: 'users/new',
+          component: newUsers
+        },
+        {
+          path: 'users/edit/:id',
+          props: true,
+          component: editUser
         },
         {
           path: '*',
@@ -59,5 +97,6 @@ export default new Router({
         }
       ]
     },
+
   ]
 })

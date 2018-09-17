@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-const link = 'http://192.168.5.195:5000'
+const link = 'http://192.168.22.120:5000'
 const pass = 123321
 Vue.use(Vuex)
 

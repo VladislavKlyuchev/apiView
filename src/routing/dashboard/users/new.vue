@@ -73,8 +73,8 @@ export default {
           return this.packages.filter(el => el.operatorId == this.operatorId)
       },
       ...mapState({
-          packages: state => state.packages,
-          operators: state => state.operators
+          packages: state => state.packages || [],
+          operators: state => state.operators || []
       })
   }
 };
