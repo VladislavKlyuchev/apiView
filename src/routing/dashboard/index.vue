@@ -4,6 +4,8 @@
         <v-toolbar-items>
             <v-btn flat :to="'/channels'">Channels</v-btn>
              <v-btn flat :to="'/packages'">packages</v-btn>
+             <v-btn flat :to="'/users'">Users</v-btn>
+             <v-btn flat :to="'/operators'">Operators</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <v-container fluid fill-height>

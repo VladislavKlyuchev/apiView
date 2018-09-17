@@ -8,6 +8,7 @@ import newChannel from '@/routing/dashboard/channels/newChannel'
 import packages from '@/routing/dashboard/packages'
 import newPackages from '@/routing/dashboard/packages/newPackages'
 import addChannelsToPackages from '@/routing/dashboard/packages/addChannels'
+import Users from '@/routing/dashboard/users'
 Vue.use(Router)
 
 export default new Router({
@@ -22,7 +23,7 @@ export default new Router({
       name: 'Dashboard',
       component: Dashboard,
       beforeEnter(to, from, next) {
-        store.state.auth ? next() : next('/auth') 
+        store.state.auth ? next() : next('/auth'); 
       },
       children: [
         
@@ -48,6 +49,10 @@ export default new Router({
         {
           path: 'packages/new',
           component: newPackages
+        },
+        {
+          path: 'users',
+          component: Users
         },
         {
           path: '*',
