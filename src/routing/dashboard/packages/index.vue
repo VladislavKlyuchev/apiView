@@ -3,9 +3,7 @@
             <v-flex xs12 md6>
                 <v-flex xs12 text-xs-right>
                     <v-btn to="/packages/new" color="success" flat>new Package</v-btn>
-                   
                                 <v-btn  flat  color="success" :disabled="!activePackage" :to="`/packages/addChannels/${activePackage}`">add channels to package</v-btn>
-                      
                 </v-flex>
                 <v-flex xs12>
                     <v-card>

@@ -2,30 +2,30 @@
     <v-container fluid grid-list-lg>
         <v-layout row wrap justify-center>
             <v-flex xs12 md6>
- <v-form ref="form">
-        <v-layout row wrap>
-            <v-flex xs12  >
-                <v-text-field v-model="name" label="name" solo-inverted :rules="[v => !!v || 'Required']" ></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-                <v-select label="Operators" :items="operators" item-text="name" item-value="id" v-model="operator" :rules="[v => !!v || 'Required']" solo-inverted></v-select>
-            </v-flex>
-            <v-flex xs10 >
-               
-                     <v-text-field v-model="price" type="number" label="Price" solo-inverted :rules="[v => !!v || 'Required']" ></v-text-field>
-            
-            </v-flex>
-            <v-flex xs12>
-                <v-checkbox label="Status" v-model="status"></v-checkbox>
-            </v-flex>
-            <v-flex xs12 sm2>
-                <v-btn  block style="min-height:48px " class="mx-0 my-0" flat color="success" @click="create" >Apply</v-btn>
+                <v-form ref="form">
+                    <v-layout row wrap>
+                        <v-flex xs12>
+                            <v-text-field v-model="name" label="name" solo-inverted :rules="[v => !!v || 'Required']"></v-text-field>
+                        </v-flex>
+                        <v-flex xs12>
+                            <v-select label="Operators" :items="operators" item-text="name" item-value="id" v-model="operator" :rules="[v => !!v || 'Required']" solo-inverted></v-select>
+                        </v-flex>
+                        <v-flex xs10>
+
+                            <v-text-field v-model="price" type="number" label="Price" solo-inverted :rules="[v => !!v || 'Required']"></v-text-field>
+
+                        </v-flex>
+                        <v-flex xs12>
+                            <v-checkbox label="Status" color="success" v-model="status"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm2>
+                            <v-btn block style="min-height:48px " class="mx-0 my-0" flat color="success" @click="create">Apply</v-btn>
+                        </v-flex>
+                    </v-layout>
+                </v-form>
             </v-flex>
         </v-layout>
-        </v-form>
-            </v-flex>
-        </v-layout>
-       
+
     </v-container>
 </template>
 
