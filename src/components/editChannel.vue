@@ -28,6 +28,9 @@
             <v-flex xs6>
                  <v-text-field  label="Logo path" :rules="[v => !!v || 'Required']" v-model="logoPath"></v-text-field>
             </v-flex>
+             <v-flex xs6>
+                 <v-text-field  label="Recording Media Url" :rules="[v => !!v || 'Required']" v-model="recordingMediaUrl"></v-text-field>
+            </v-flex>
             <v-flex xs6>
                  <v-text-field  label="Stream path" :rules="[v => !!v || 'Required']" v-model="streamPath" ></v-text-field>
             </v-flex>
@@ -69,6 +72,7 @@ export default {
       xmltvid: null,
       category: null,
       packageId: null,
+      recordingMediaUrl: null,
       logoPath: null,
       streamPath: null,
       timeshift: null,
@@ -91,6 +95,7 @@ export default {
       this.xmltvid = this.data.xmlTvId;
       this.category = this.data.categoryId;
       this.package = this.data.package;
+      this.recordingMediaUrl = this.data.recordingMediaUrl;
       this.adult = this.data.adult == 1? true: false,
       this.logoPath = this.data.logoPath;
       this.streamPath = this.data.streamPath;
@@ -110,6 +115,7 @@ export default {
           xmlTvId: this.xmltvid,
           categoryId: this.category,
           logoPath: this.logoPath,
+          recordingMediaUrl: this.recordingMediaUrl,
           streamPath: this.streamPath,
           timeshift: this.timeshift,
           hidden: this.hidden ? 1 : 0,

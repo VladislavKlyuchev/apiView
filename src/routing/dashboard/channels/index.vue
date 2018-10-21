@@ -20,6 +20,7 @@
        <td class="text-xs-left">{{ props.item.xmlTvId }}</td>
         <td class="text-xs-left">{{ props.item.categoryId}}</td>
       <td class="text-xs-left">{{ props.item.logoPath }}</td>
+       <td class="text-xs-left">{{ props.item.recordingMediaUrl}}</td>
       <td class="text-xs-left">{{ props.item.streamPath}}</td>
       <td class="text-xs-left">{{ props.item.timeshift }}</td>
       <td class="text-xs-left">
@@ -59,13 +60,14 @@ export default {
           value: "channelId",
           width: "5%"
         },
-        { text: "Channel name", value: "channelName", width: "10%" },
-        { text: "Channel name EN", value: "channelNameENG", width: "10%" },
-        { text: "XML TV ID", value: "xmlTvId", width: "10%" },
-         { text: "Category", value: "categoryId", width: "10%" },
-        { text: "Logo path", value: "logopPath", width: "10%" },
-        { text: "Stream path", value: "streamPath", width: "10%" },
-        { text: "Timeshift", value: "timeshift", width: "5%" },
+        { text: "ChannelName", value: "channelName", width: "10%" },
+        { text: "ChannelNameEN", value: "channelNameENG", width: "10%" },
+        { text: "XMLTVID", value: "xmlTvId", width: "10%" },
+         { text: "Category", value: "categoryId", width: "5%" },
+        { text: "LogoPath", value: "logopPath", width: "10%" },
+        { text: 'RecordingMediaUrl', value: 'recordingMediaUrl', width: '7%'},
+        { text: "StreamPath", value: "streamPath", width: "8%" },
+        { text: "TimeShift", value: "timeshift", width: "5%" },
         { text: "hidden", value: "hidden", width: "5%" },
         {
           text: "",

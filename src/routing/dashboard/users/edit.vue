@@ -8,7 +8,7 @@
                     <v-text-field label="Name" solo-inverted v-model="name" :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="UUID" v-model="uuid" solo-inverted  :rules="[v => !!v || 'Required']"></v-text-field>
+                    <v-text-field label="stbId" v-model="uuid" solo-inverted  :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
                    <v-flex xs12>
                     <v-text-field label="PIN" hint="password for 18+ channels" solo-inverted v-model="pin" :rules="[v => !!v || 'Required']"></v-text-field>
@@ -18,6 +18,12 @@
                   </v-flex>
                   <v-flex xs12>
                       <v-select label="Packages" :items="filterPackages" item-text="name" item-value="id" v-model="packageId" :rules="[v => !!v || 'Required']" solo-inverted></v-select>
+                  </v-flex>
+                   <v-flex xs12>
+                    <v-text-field label="Version"  solo-inverted v-model="version" :rules="[v => !!v || 'Required']"></v-text-field>
+                  </v-flex>
+                   <v-flex xs12>
+                    <v-text-field label="ApkUrl" solo-inverted v-model="apkUrl" :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
                    <v-flex xs12>
                    <v-checkbox label="Status" color="success" v-model="status"></v-checkbox>
@@ -46,6 +52,8 @@ export default {
       name: null,
       operatorId: null,
       pin: null,
+      version: null,
+      apkUrl: null,
       packageId: null,
       status: null,
       uuid: null,
@@ -61,6 +69,8 @@ export default {
           this.name = this.user.name
           this.operatorId = this.user.operatorId
           this.pin = this.user.pin
+          this.version = this.user.version
+          this.apkUrl = this.user.apkUrl
           this.packageId = this.user.packageId
           this.status = this.user.status == 1? true: false
           this.uuid = this.user.uuid
@@ -74,6 +84,8 @@ export default {
               operatorId: this.operatorId,
               packageId: this.packageId,
               pin: this.pin,
+              version: this.version,
+              apkUrl: this.apkUrl,
               uuid: this.uuid,
               status: this.status == true? 1: 0
           }

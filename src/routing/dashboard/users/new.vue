@@ -8,7 +8,7 @@
                     <v-text-field label="Name" solo-inverted v-model="name" :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="UUID" v-model="uuid" solo-inverted  :rules="[v => !!v || 'Required']"></v-text-field>
+                    <v-text-field label="stbId" v-model="uuid" solo-inverted  :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
                    <v-flex xs12>
                     <v-text-field label="PIN" hint="password for 18+ channels" solo-inverted v-model="pin" :rules="[v => !!v || 'Required']"></v-text-field>
@@ -18,6 +18,12 @@
                   </v-flex>
                   <v-flex xs12>
                       <v-select label="Packages" :items="filterPackages" item-text="name" item-value="id" v-model="packageId" :rules="[v => !!v || 'Required']" solo-inverted></v-select>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-text-field label="Version"  solo-inverted v-model="version" :rules="[v => !!v || 'Required']"></v-text-field>
+                  </v-flex>
+                   <v-flex xs12>
+                    <v-text-field label="ApkUrl" solo-inverted v-model="apkUrl" :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
                   <v-flex xs12>
                       <v-select label="Status" :items="statusENUM" v-model="status" :rules="[v => !!v || 'Required']" solo-inverted></v-select>
@@ -42,6 +48,8 @@ export default {
       pin: null,
       packageId: null,
       status: null,
+      version: null,
+      apkUrl: null,
       uuid: null,
       statusENUM: [
           'ACTIVE',
@@ -57,6 +65,8 @@ export default {
               operatorId: this.operatorId,
               packageId: this.packageId,
               pin: this.pin,
+              version: this.version,
+              apkUrl: this.apkUrl,
               uuid: this.uuid,
               status: this.status == 'ACTIVE'? true: false
           }

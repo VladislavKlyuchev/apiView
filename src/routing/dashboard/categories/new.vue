@@ -4,6 +4,9 @@
               <h1 class="text-xs-center title"> Create new category</h1>
               <v-form ref="form">
                 <v-layout row wrap  class="mt-5">
+                   <v-flex xs12>
+                    <v-text-field label="Key" solo-inverted v-model="key" :rules="[v => !!v || 'Required']"></v-text-field>
+                  </v-flex>
                   <v-flex xs10>
                     <v-text-field label="Name" solo-inverted v-model="name" :rules="[v => !!v || 'Required']"></v-text-field>
                   </v-flex>
@@ -23,12 +26,17 @@ export default {
   data() {
     return {
       name: null,
+      key: null
     };
   },
   methods: {
     submit() {
       if(this.$refs.form.validate()) {
-        this.$store.dispatch('createNewCategory', this.name)
+        const body =  {
+          name: this.name,
+          key: this.key
+        }
+        this.$store.dispatch('createNewCategory', body)
         .then(() => {
           this.name = null
           this.$router.go(-1)

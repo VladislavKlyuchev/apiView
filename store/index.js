@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-const link = window.link || 'http://172.21.229.81'
+const link = window.link || 'http://172.29.95.33:5000'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -137,11 +137,8 @@ export const store = new Vuex.Store({
         dispatch('getChannels')
       })
     },
-    createNewCategory ({ state, commit, dispatch }, name) {
-      const body = {
-        name,
-        dashboard: state.password
-      }
+    createNewCategory ({ state, commit, dispatch }, body) {
+      body.dashboard = state.password
       axios.post(`${link}/addNewCategory`, body).then(() => {
         dispatch('getCategories')
       })

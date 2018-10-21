@@ -18,6 +18,8 @@
               </td>
               <td class="text-xs-left">{{ props.item.operatorId}}</td>
               <td class="text-xs-left">{{ props.item.packageId }}</td>
+              <td class="text-xs-left">{{ props.item.version }}</td>
+              <td class="text-xs-left">{{ props.item.apkUrl }}</td>
               <td class="text-xs-left">
 
                 <v-btn flat small :to="`/users/edit/${props.item.id}`">
@@ -79,10 +81,12 @@ export default {
          
         },
         { text: "Name", value: "name", },
-        { text: "UUID", value: "uuid", },
+        { text: "stbId", value: "uuid", },
         { text: "Status", value: "status",  },
          { text: "Operator ID", value: "operatorId",},
-        { text: "package ID", value: "packageId", },
+        { text: "Package ID", value: "packageId", },
+        { text: "Version", value: "version"},
+        { text: "ApkUrl", value: "apkUrl"},
         {
           text: "",
           value: "",

@@ -18,6 +18,7 @@
     <template slot="items" slot-scope="props">
       <td class="text-xs-left">{{ props.item.id}}</td>
       <td class="text-xs-left">{{ props.item.name }}</td>
+        <td class="text-xs-left">{{ props.item.key }}</td>
       <td class="text-xs-left">
          <!-- <v-layout row wrap >
               <v-flex xs6>
@@ -59,6 +60,10 @@ export default {
           {
               text: 'Name',
               value: 'name'
+          },
+          {
+              text: 'Key',
+              value: 'key'
           },
           {
               text: '',
