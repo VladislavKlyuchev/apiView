@@ -109,6 +109,7 @@ export default {
     apply() {
       if (this.$refs.form.validate()) {
         const body = {
+          id: this.data.id,
           channelId: this.channelId,
           channelName: this.channelName,
           channelNameENG: this.channelNameENG,

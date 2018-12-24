@@ -28,7 +28,7 @@ export const store = new Vuex.Store({
       state.channelsWithPackage = payload.channelsWithPackage
     },
     editChannel (state, id) {
-      state.editChannel = state.channels.find(el => el.channelId == id)
+      state.editChannel = state.channels.find(el => el.id == id)
     },
     deleteChannel (state, id) {
       state.deleteChannel = state.channels.find(el => el.id == id)
@@ -94,12 +94,33 @@ export const store = new Vuex.Store({
           state.categories = result.data
         })
     },
+    deleteCategory ({commit, state, dispatch}, id) {
+      axios
+      .post(`${link}/deleteCategories`, { dashboard: state.password, id })
+      .then(() => {
+        return dispatch('getCategories')
+      })
+    },
+    editCategory ({commit, state, dispatch}, body) {
+      body.dashboard = state.password
+      axios
+      .post(`${link}/editCategories`, body)
+      .then(() => {
+        return dispatch('getCategories')
+      })
+    },
     getPackages ({ state, commit, dispatch }) {
       axios
         .post(`${link}/getPackages`, { dashboard: state.password })
         .then(result => {
           state.packages = result.data
         })
+    },
+    updatePackage ({ state, commit, dispatch }, editPackage) {
+      editPackage.dashboard = state.password
+      axios.post(`${link}/updatePackage`, editPackage).then(result => {
+        dispatch('getPackages')
+      })
     },
     createNewPackage ({ state, commit, dispatch }, newPackage) {
       newPackage.dashboard = state.password

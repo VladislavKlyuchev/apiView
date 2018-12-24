@@ -6,7 +6,10 @@
         <v-btn flat color="success" to="/users/new">new User</v-btn>
       </v-flex>
       <v-flex xs12>
-        <v-data-table dark :headers="headers" :items="users" hide-actions class="elevation-1">
+                                <v-text-field solo-inverted append-icon="search" v-model="search" label="Search"> </v-text-field>
+                            </v-flex>
+      <v-flex xs12>
+        <v-data-table dark :headers="headers" :items="users" :search="search" class="elevation-1">
           <template slot="items" slot-scope="props">
             <tr @click="props.expanded = !props.expanded">
               <td class="text-xs-left">{{ props.item.id }}</td>
@@ -112,6 +115,7 @@ export default {
         value: 'packageId'
       }
       ],
+      search: ''
     };
   },
   methods: {

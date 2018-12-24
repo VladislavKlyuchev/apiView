@@ -28,6 +28,7 @@ export default {
           this.$store.commit('popup', false)
       },
       deleteChannel() {
+          console.log(this.data.id)
           this.$store.dispatch('getDeleteChannel', this.data.id).then(() => {
               this.$store.state.deleteChannel = null
               this.$store.commit('popup', false)

@@ -11,7 +11,7 @@
                         <v-layout row wrap>
                             
                             <v-flex xs12>
-                                <v-btn v-if="activePackage && filterPackages.length > 1" block @click="deletePackage" class="error">DELETE Package</v-btn>
+                                <v-btn v-if="activePackage" block  :to="`/packages/edit/${activePackage}`" class="warning">update Package</v-btn>
                             </v-flex>
                             <v-flex xs12>
                                   <v-select :items="operators" label="Operators" clearable item-text="name" item-value="id" v-model="activeOperator" solo-inverted ></v-select>
@@ -67,11 +67,11 @@ export default {
     };
   },
   methods: {
-    deletePackage() {
+    updatePackage() {
         const body = {  
             packageId: this.activePackage,
         }
-        this.$store.dispatch("deletePackage",body)
+        this.$router.push(`/package/edit/${thos/activePackage.id}`)
     },  
     update() {
       if (this.activePackage !== null && this.channels.length !== 0) {

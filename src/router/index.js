@@ -7,9 +7,12 @@ import channels from '@/routing/dashboard/channels'
 import newChannel from '@/routing/dashboard/channels/newChannel'
 import packages from '@/routing/dashboard/packages'
 import newPackages from '@/routing/dashboard/packages/newPackages'
+import editPackages from '@/routing/dashboard/packages/edit'
 import addChannelsToPackages from '@/routing/dashboard/packages/addChannels'
 import categories from '@/routing/dashboard/categories'
 import newCategories from '@/routing/dashboard/categories/new'
+import deleteCategories from '@/routing/dashboard/categories/delete'
+import editCategories from '@/routing/dashboard/categories/edit'
 import operators from '@/routing/dashboard/operators'
 import newOperators from '@/routing/dashboard/operators/new'
 import editOperator from '@/routing/dashboard/operators/edit'
@@ -58,12 +61,27 @@ export default new Router({
           component: newPackages
         },
         {
+          path: 'packages/edit/:id',
+          props: true,
+          component: editPackages
+        },
+        {
           path: 'categories',
           component: categories,
         },
         {
           path: 'categories/new',
           component: newCategories,
+        },
+        {
+          path: 'categories/delete/:id',
+          component: deleteCategories,
+          props: true
+        },
+        {
+          path: 'categories/edit/:id',
+          component: editCategories,
+          props: true
         },
         {
           path: 'operators',

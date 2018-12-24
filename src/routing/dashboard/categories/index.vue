@@ -4,6 +4,9 @@
                 <v-flex xs12 text-xs-right>
                     <v-btn to="/categories/new" color="success" flat>new category</v-btn>
                 </v-flex>
+                  <v-flex xs12>
+                                <v-text-field solo-inverted append-icon="search" v-model="search" label="Search"> </v-text-field>
+                            </v-flex>
                 <v-flex xs12>
                     <v-card>
                         <v-container fluid grid-list-lg>
@@ -13,13 +16,19 @@
  dark
     :headers="headers"
     :items="categories"
-    hide-actions
+    :search="search"
   >
     <template slot="items" slot-scope="props">
       <td class="text-xs-left">{{ props.item.id}}</td>
       <td class="text-xs-left">{{ props.item.name }}</td>
         <td class="text-xs-left">{{ props.item.key }}</td>
       <td class="text-xs-left">
+            <v-btn small flat  :to='"/categories/delete/" + props.item.id'>
+              <v-icon color="error">clear</v-icon>
+          </v-btn>
+           <v-btn small flat  :to='"/categories/edit/" + props.item.id'>
+              <v-icon color="warning">edit</v-icon>
+          </v-btn>
          <!-- <v-layout row wrap >
               <v-flex xs6>
                    <v-btn flat small @click="edit(props.item.id)"> 
@@ -27,9 +36,7 @@
                      </v-btn>
               </v-flex>
               <v-flex xs6>
-                  <v-btn small flat  @click="deleteCategory(props.item.id)">
-              <v-icon color="error">clear</v-icon>
-          </v-btn>
+                
               </v-flex>
           </v-layout> -->
       </td>
@@ -52,6 +59,7 @@ export default {
   data() {
     return {
       channels: [],
+      search: '',
       headers: [
           {
               text: 'Id',
@@ -69,7 +77,7 @@ export default {
               text: '',
               sortable: false,
               value: 'actions',
-              width:'300px'
+              width: '50px'
           }
       ]
     };

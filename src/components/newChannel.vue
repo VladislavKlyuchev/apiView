@@ -16,7 +16,7 @@
                  <v-text-field label="XML tv ID" :rules="[v => !!v || 'Required']" v-model="xmltvid"></v-text-field>
             </v-flex>
             <v-flex xs6>
-                 <v-select :items="categories" item-text="name" item-value="id" label="Category" :rules="[v => !!v || 'Required']" v-model="category"></v-select>
+                 <v-select :items="categories" item-text="name" item-value="id" label="Category"  v-model="category"></v-select>
             </v-flex>
              <v-flex xs6>
                  <v-select :items="packages" item-text="name" item-value="id" label="Package" :rules="[v => !!v || 'Required']" v-model="package"></v-select>
